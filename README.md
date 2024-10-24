@@ -1,6 +1,5 @@
 # Exp 2 - Image_Acqusition-_using_Web_Camera
 ## Aim:
- 
 To write a python program using OpenCV to capture the image from the web camera and do the following image manipulations.
 
 i) Write the frame as JPG 
@@ -13,6 +12,7 @@ iv) Rotate and display the video
 
 ## Software Used
 Anaconda - Python 3.7
+
 ## Algorithm
 ### Step 1:
 Use cv2.VideoCapture(0) to access web camera
@@ -30,93 +30,85 @@ Use cv2.imshow to show the video
 End the program and close the output video window by pressing 'q'.
 
 ## Program:
-``` 
 Developed By: SRINITHI V
+
 Register No: 212222110046
-
-i) Write the frame as JPG file
+### i) Write the frame as JPG image
+```
 import cv2
-videoCaptureObject=cv2.VideoCapture(0)
-while (True) :
-    cap,frame=videoCaptureObject.read()
-    cv2.imwrite("NewPicture.jpg",frame)
-    
-    result=False
-videoCaptureObject.release()
+viedoCaptureObject=cv2.VideoCapture(0)
+ret,frame=viedoCaptureObject.read()
+cv2.imshow("webcam_img.jpg",frame)
+cv2.waitKey(10000)
+viedoCaptureObject.release()
 cv2.destroyAllWindows()
+```
 
-ii) Display the video
+### ii) Display the video
+```
 import numpy as np
 import cv2
-cap=cv2.VideoCapture(0)
-while True:
-    ret,frame=cap.read()
-    cv2.imshow('video capture',frame)
-    if cv2.waitKey(1)==ord('q'):
-        break
-cap.release()
-cv2.destroyAllWindows()
-
-iii) Display the video by resizing the window
-import numpy as np
-import cv2
-cap=cv2.VideoCapture(0)
-while True:
-    ret,frame=cap.read()
-    width=int(cap.get(3))
-    height=int(cap.get(4))
-    image=np.zeros(frame.shape,np.uint8)
-    smaller_frame=cv2.resize(frame,(0,0),fx=0.5,fy=0.5)
-    image[:height//2, :width//2]=smaller_frame
-    image[height//2:, :width//2]=smaller_frame
-    image[:height//2, width//2:]=smaller_frame
-    image[height//2:, width//2:]=smaller_frame
-    cv2.imshow('Video Capture',image)
-    if cv2.waitKey(1)==ord('q'):
-        break
-cap.release()
-cv2.destroyAllWindows()
-
-iv) Rotate and display the video
-
-import numpy as np
-import cv2
-cap=cv2.VideoCapture(0)
-while True:
-    ret,frame=cap.read()
-    width=int(cap.get(3))
-    height=int(cap.get(4))
-    image=np.zeros(frame.shape,np.uint8)
-    smaller_frame=cv2.resize(frame,(0,0),fx=0.5,fy=0.5)
-    image[:height//2, :width//2]=cv2.rotate(smaller_frame,cv2.ROTATE_180)
-    image[height//2:, :width//2]=smaller_frame
-    image[:height//2, width//2:]=cv2.rotate(smaller_frame,cv2.ROTATE_180)
-    image[height//2:, width//2:]=smaller_frame
-    cv2.imshow('Video Capture',image)
-    if cv2.waitKey(1)==ord('q'):
-        break
+cap = cv2.VideoCapture(0)
+ret, frame = cap.read()
+cv2.imshow('captured_frame', frame)
+cv2.waitKey(10000)
 cap.release()
 cv2.destroyAllWindows()
 ```
-## Output
-
-### i) Write the frame as JPG image:
-
-![Screenshot 2024-09-26 153154](https://github.com/user-attachments/assets/1e7b2ed6-49be-4144-b636-fab10aa3cc16)
-
-
-### ii) Display the video:
-
-![Screenshot 2024-09-26 153314](https://github.com/user-attachments/assets/79ec4680-8ebb-4183-8417-19e5c42f3bae)
-
 
 ### iii) Display the video by resizing the window
-![Screenshot 2024-09-26 153517](https://github.com/user-attachments/assets/76fc8cc3-e5bb-49bb-895a-e47cf4570683)
-
+```
+import numpy as np
+import cv2
+cap=cv2.VideoCapture(0)
+ret,frame=cap.read()
+width=int(cap.get(3))
+height=int(cap.get(4))
+image=np.zeros(frame.shape,np.uint8)
+smaller_frame=cv2.resize(frame,(0,0),fx=0.5,fy=0.5)
+image[:height//2, :width//2]=smaller_frame
+image[height//2:, :width//2]=smaller_frame
+image[:height//2, width//2:]=smaller_frame
+image[height//2:, width//2:]=smaller_frame
+cv2.imshow('SRINITHI V_212222110046',image)
+cv2.waitKey(5000)  
+image_dict = {'captured_image1': image}
+cv2.imwrite('captured_image1.jpg', image)
+cap.release()
+cv2.destroyAllWindows()
+```
 
 ### iv) Rotate and display the video
-![Screenshot 2024-09-26 152908](https://github.com/user-attachments/assets/265902da-e0d2-412b-baf4-d5329dd77425)
+```
+import numpy as np
+import cv2
+cap=cv2.VideoCapture(0)
+ret,frame=cap.read()
+width=int(cap.get(3))
+height=int(cap.get(4))
+image=np.zeros(frame.shape,np.uint8)
+smaller_frame=cv2.resize(frame,(0,0),fx=0.5,fy=0.5)
+image[:height//2, :width//2]=cv2.rotate(smaller_frame,cv2.ROTATE_180)
+image[height//2:, :width//2]=smaller_frame
+image[:height//2, width//2:]=cv2.rotate(smaller_frame,cv2.ROTATE_180)
+image[height//2:, width//2:]=smaller_frame
+cv2.imshow('SRINITHI V_212222110046',image)
+cv2.waitKey(5000) 
+image_dict = {'captured_image2': image}
+cv2.imwrite('captured_image2.jpg', image)
+cap.release()
+cv2.destroyAllWindows()
+```
 
+## Output
+### i) Write the frame as JPG image
+![Screenshot (173)](https://github.com/user-attachments/assets/0515d55e-0452-4332-a56f-cebe0b13c6aa)
+
+### ii) Display the video
+
+### iii) Display the video by resizing the window
+
+### iv) Rotate and display the video
 
 ## Result:
 Thus the image is accessed from webcamera and displayed using openCV.
