@@ -34,7 +34,7 @@ Developed By: SRINITHI V
 
 Register No: 212222110046
 ### i) Write the frame as JPG image
-```
+```py
 import cv2
 viedoCaptureObject=cv2.VideoCapture(0)
 ret,frame=viedoCaptureObject.read()
@@ -45,7 +45,7 @@ cv2.destroyAllWindows()
 ```
 
 ### ii) Display the video
-```
+```py
 import numpy as np
 import cv2
 cap = cv2.VideoCapture(0)
@@ -57,7 +57,7 @@ cv2.destroyAllWindows()
 ```
 
 ### iii) Display the video by resizing the window
-```
+```py
 import numpy as np
 import cv2
 cap=cv2.VideoCapture(0)
@@ -79,7 +79,7 @@ cv2.destroyAllWindows()
 ```
 
 ### iv) Rotate and display the video
-```
+```py
 import numpy as np
 import cv2
 cap=cv2.VideoCapture(0)
